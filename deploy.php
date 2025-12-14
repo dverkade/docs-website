@@ -104,9 +104,9 @@ task('deploy:sync-docs', function () {
 
 desc('Ensure webhook secret is configured');
 task('deploy:configure-webhook', function () {
-    $secret = getenv('GITHUB_WEBHOOK_SECRET');
+    $secret = getenv('DOCS_WEBHOOK_SECRET');
     if (empty($secret)) {
-        writeln('⚠️  GITHUB_WEBHOOK_SECRET not set in environment, skipping...');
+        writeln('⚠️  DOCS_WEBHOOK_SECRET not set in environment, skipping...');
         return;
     }
 
