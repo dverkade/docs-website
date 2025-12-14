@@ -1203,3 +1203,30 @@
         @apply grid-cols-1;
     }
 }
+
+/**
+ * Mobile fixes for styled HTML content
+ * These pages have inline Tailwind classes that need mobile overrides
+ */
+@media (max-width: 640px) {
+    /* Constrain all pre blocks in styled HTML to viewport width */
+    .styled-html pre,
+    .docs-content pre {
+        max-width: calc(100vw - 2rem) !important;
+        box-sizing: border-box;
+    }
+
+    /* Ensure main content area doesn't overflow */
+    .docs-content,
+    .styled-html {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Step-code spans in styled HTML - allow wrapping */
+    .styled-html .step-code,
+    .styled-html code:not(pre code) {
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+}
